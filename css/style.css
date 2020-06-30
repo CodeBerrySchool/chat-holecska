@@ -1,0 +1,93 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 10px; }
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400; }
+
+.container {
+  display: grid;
+  grid-template-columns: [contact-start] 25% [contact-end chat-start] 75% [chat-end];
+  grid-template-rows: 8rem minmax(max-content, 1fr) 14rem; }
+
+.contact-box {
+  grid-column: contact-start / contact-end;
+  grid-row: 1/-1;
+  display: grid;
+  grid-template-rows: 8rem 1fr; }
+  .contact-box__search {
+    grid-row: 1/2; }
+  .contact-box__contact {
+    grid-row: 2/-1;
+    display: grid;
+    grid-template-rows: repeat(8, 8rem); }
+
+.search-form {
+  position: relative;
+  padding: 1.5rem; }
+  .search-form__input {
+    width: 100%;
+    background-color: #F4F3F5;
+    color: rgba(33, 17, 56, 0.25);
+    font-size: 1.4rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0;
+    text-align: left;
+    padding: 1.6rem;
+    padding-left: 2.4rem;
+    border: none;
+    outline: none; }
+    .search-form__input::placeholder {
+      color: rgba(33, 17, 56, 0.25);
+      font-size: 1.4rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold;
+      letter-spacing: 0; }
+  .search-form__icon {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    font-size: 2rem;
+    color: rgba(33, 17, 56, 0.25); }
+
+.contact {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 16.25%) 1fr;
+  border-top: 1px solid #F4F3F5; }
+  .contact--active {
+    border-left: 5px solid #6200EA; }
+  .contact__picture-box {
+    padding: 1.5rem;
+    padding-right: 0;
+    display: flex;
+    justify-content: flex-end; }
+  .contact__picture {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 50%; }
+  .contact__content {
+    grid-column: 2/3;
+    padding: 2rem 1.5rem;
+    display: grid;
+    grid-row-gap: .5rem;
+    align-items: center;
+    font-family: "Montserrat", sans-serif; }
+  .contact__name {
+    font-weight: bold;
+    color: #6200EA;
+    font-size: 1.2rem;
+    letter-spacing: 2.4px;
+    text-transform: uppercase; }
+  .contact__text {
+    color: #211138;
+    font-size: 1.4rem; }
