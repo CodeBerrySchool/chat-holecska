@@ -11,13 +11,17 @@
     <title>Chat Site</title>
     <script src="https://kit.fontawesome.com/3ad538c219.js" crossorigin="anonymous"></script>
   </head>
-  <body class="container">
-    <div class="contact-box">
+  <body class="container" onresize="contactDisplay()">
+    <div class="contact-box" id="contact">
       <div class="contact-box__search">
         <form action="#" class="search-form">
           <input onfocus="this.value=''" id="search" class="search-form__input" type="text" placeholder="Search">
           <i class="fas fa-search search-form__icon"></i>
         </form>
+        <div class="closebtn" onclick="closeNav()">
+          &times;
+        </div>
+
       </div>
       <div class="contact-box__contact">
         <div class="contact contact--active">
@@ -92,16 +96,97 @@
           </div>
 
         </div>
+        <div class="contact--btn">
+          <button class="btn">Add new contact</button>
+        </div>
 
       </div>
     </div>
     <div class="chat">
-      <div class="chat__message">
-        Chat
+      <div class="chat__header">
+        <div class="chat__header__bar" onclick="openNav()">
+          <i class="fa fa-bars"></i>
+        </div>
+
+        <h2 class="chat__header__receiver">Amy Adams</h2>
+        <img src="img/user_avatar_01.png" alt="Message Receiver Picture" class="chat__header__receiver--picture">
+        <img src="img/logo_50.svg" alt="Logo" class="chat__header__logo">
+        <div class="chat__header__sender">
+          <p class="chat__header__sender--name">Adam Holecska</p>
+          <img src="img/user_avatar_07.png" alt="Message Sender Picture" class="chat__header__sender--picture">
+        </div>
+      </div>
+      <div class="chat__messages">
+        <!-- SECTION 1: Amy Messages -->
+        <p class="chat__messages__received chat__messages__received--01">Amy, 11:37</p>
+        <img src="img/user_avatar_01.png" alt="Profile Picture Amy Adams" class="chat__messages__sender chat__messages__sender--01">
+        <p class="chat__messages__text chat__messages__text-white chat__messages__text-white--01">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+        <p class="chat__messages__text chat__messages__text-white chat__messages__text-white--02">At vero eos et accusam et justo duo dolores et ea rebum.</p>
+
+        <!-- SECTION 2: Student Messages -->
+        <p class="chat__messages__received chat__messages__received--02">11:40</p>
+        <div class="chat__messages__text-grey-box">
+          <p class="chat__messages__text chat__messages__text-grey chat__messages__text-grey--01">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="chat__messages__sender--02">
+          <img src="img/user_avatar_07.png" alt="Profile Picture Avatar-07" class="chat__messages__sender">
+        </div>
+
+        <!-- SECTION 3: Amy Messages -->
+        <p class="chat__messages__received chat__messages__received--01">Amy, 12:04</p>
+        <img src="img/user_avatar_01.png" alt="Profile Picture Amy Adams" class="chat__messages__sender chat__messages__sender--01">
+        <p class="chat__messages__text chat__messages__text-white chat__messages__text-white--01">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+
+        <!-- SECTION 4: Student Messages -->
+        <p class="chat__messages__received chat__messages__received--02">12:06</p>
+        <div class="chat__messages__text-grey-box">
+          <p class="chat__messages__text chat__messages__text-grey chat__messages__text-grey--02">At vero eos et accusam et justo duo dolores et ea rebum.</p>
+        </div>
+        <div class="chat__messages__text-grey-box">
+          <p class="chat__messages__text chat__messages__text-grey chat__messages__text-grey--03">Stet clita kasd gubergren.</p>
+        </div>
+        <div class="chat__messages__sender--02">
+          <img src="img/user_avatar_07.png" alt="Profile Picture Avatar-07" class="chat__messages__sender">
+        </div>
+
+        <!-- SECTION 5: ... Typing -->
+        <p class="chat__messages__received mb-none">Amy is typing...</p>
+
       </div>
       <div class="chat__input">
 
+          <form action="#" class="form">
+            <textarea class="form__textarea" placeholder="Type your message..."></textarea>
+            <i class="fas fa-paperclip form__attachment"></i>
+            <i class="far fa-smile form__smile"></i>
+          </form>
+
+
+        <div class="send">
+          <i class="far fa-paper-plane send__icon"></i>
+        </div>
+
       </div>
     </div>
+
+    <script>
+      function openNav() {
+        document.getElementById("contact").style.display = "block";
+      }
+
+      function closeNav() {
+        document.getElementById("contact").style.display = "none";
+
+      }
+
+      function contactDisplay() {
+        var w = window.innerWidth;
+        if (w>600){
+          document.getElementById("contact").style.display = "block";
+        } else{
+          document.getElementById("contact").style.display = "none";
+        }
+      }
+    </script>
   </body>
 </html>
